@@ -81,8 +81,6 @@ on late-fs
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
     mount_all --late
-    # dongbin@ODM_WT_SYSTEM, 20210106  Mount reserve.img
-    mount_reserve ext4 loop@/data/reserve/reserve.img /system/reserve ro context=u:object_r:system_file:s0
 
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
