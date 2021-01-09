@@ -1,0 +1,14 @@
+[
+  {
+    "repository"  : "hardware_oneplus",
+    "target_path" : "hardware/oneplus",
+    "branch"      : "eleven",
+    "remote"      : "pixele"
+  },
+  {
+    "repository"  : "vendor_oneplus_sm7250-common",
+    "target_path" : "vendor/oneplus/sm7250-common",
+    "branch"      : "eleven",
+    "remote"      : "pixel-devices-blobs"
+  }
+]
