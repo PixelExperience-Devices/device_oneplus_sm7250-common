@@ -220,6 +220,9 @@ persist.vendor.radio.sib16_support=1
 persist.vendor.radio.uicc_se_enabled=true
 ro.com.android.dataroaming=false
 
+# Seamless transfer
+sys.fflag.override.settings_seamless_transfer=true
+
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 persist.vendor.sensors.debug.ssc_qmi_debug=true
