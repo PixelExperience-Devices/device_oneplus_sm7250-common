@@ -4,7 +4,6 @@
 /(vendor|system/vendor)/bin/tri-state-key_daemon    u:object_r:tri-state-key_daemon_exec:s0
 /(vendor|system/vendor)/bin/vl53l1_daemon_main      u:object_r:vl53l1_daemon_main_exec:s0
 /(vendor|system/vendor)/bin/wifi-mac-generator      u:object_r:wifi-mac-generator_exec:s0
-/(vendor|system/vendor)/bin/wlchgd                  u:object_r:wlchgd_exec:s0
 
 # Block devices
 /dev/block/platform/soc/1d84000.ufshc/by-name/config             u:object_r:frp_block_device:s0
@@ -44,7 +43,6 @@
 /dev/param                u:object_r:param_device:s0
 /dev/skin_thermal         u:object_r:therm_device:s0
 /dev/stmvl53l1_ranging    u:object_r:vl53l1_device:s0
-/dev/wlchg                u:object_r:wlchg_device:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oneplus_lito            u:object_r:hal_fingerprint_default_exec:s0
