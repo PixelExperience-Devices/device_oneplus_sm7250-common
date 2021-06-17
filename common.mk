@@ -192,6 +192,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.cust.rc \
+    init.display.rc \
     init.oem.debug.rc \
     init.oem.minidump.sdx55m.rc \
     init.oem.rc \
