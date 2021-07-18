@@ -14,15 +14,15 @@
 // limitations under the License.
 
 soong_config_module_type {
-    name: "oneplus_kona_fod_hal_cc_defaults",
+    name: "oneplus_lito_fod_hal_cc_defaults",
     module_type: "cc_defaults",
-    config_namespace: "ONEPLUS_KONA_FOD",
+    config_namespace: "ONEPLUS_LITO_FOD",
     value_variables: ["POS_X", "POS_Y", "SIZE"],
     properties: ["cppflags"],
 }
 
-oneplus_kona_fod_hal_cc_defaults {
-    name: "oneplus_kona_fod_hal_defaults",
+oneplus_lito_fod_hal_cc_defaults {
+    name: "oneplus_lito_fod_hal_defaults",
     soong_config_variables: {
         POS_X: {
             cppflags: ["-DFOD_POS_X=%s"],
@@ -37,14 +37,14 @@ oneplus_kona_fod_hal_cc_defaults {
 }
 
 cc_binary {
-    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_kona",
+    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_lito",
     defaults: [
         "hidl_defaults",
-        "oneplus_kona_fod_hal_defaults",
+        "oneplus_lito_fod_hal_defaults",
     ],
     relative_install_path: "hw",
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_kona.rc"],
-    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_kona.xml"],
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_lito.rc"],
+    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_lito.xml"],
     srcs: ["service.cpp", "FingerprintInscreen.cpp"],
     shared_libs: [
         "libbase",
@@ -60,7 +60,7 @@ cc_binary {
 }
 
 cc_library_static {
-    name: "libfod_extension.oneplus_kona",
+    name: "libfod_extension.oneplus_lito",
     srcs: ["FodExtension.cpp"],
     include_dirs: [
         "frameworks/native/services/surfaceflinger/CompositionEngine/include"
