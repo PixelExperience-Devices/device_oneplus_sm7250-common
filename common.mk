@@ -190,6 +190,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ftm_power_config.sh \
     init.class_main.sh \
+    init.cust.rc \
     init.oem.debug.rc \
     init.oem.minidump.sdx55m.rc \
     init.oem.rc \
