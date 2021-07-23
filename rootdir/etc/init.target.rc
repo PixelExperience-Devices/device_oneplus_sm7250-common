@@ -106,8 +106,7 @@ on boot
     setprop vendor.usb.qdss.inst.name "qdss_mdm"
     setprop vendor.usb.controller a600000.dwc3
 #Load WLAN driver
-#Fanghua.Zhu@ODM_WT.BSP.CONN.WIFI.107968, 2020/12/26, Remove for AT OPEN_WIFI fail in FTM mode.
-#    insmod /vendor/lib/modules/qca_cld3_wlan.ko
+    insmod /vendor/lib/modules/qca_cld3_wlan.ko
 
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
