@@ -243,6 +243,7 @@ on fs
 	chmod 0666 /sys/class/drm/card0-DSI-1/dimlayer_bl_en
 	chmod 0666 /sys/class/drm/card0-DSI-1/dither_en
 	chmod 0666 /sys/class/drm/card0-DSI-1/oplus_msd_aod
+	chmod 0666  /sys/class/drm/card0-DSI-1/panel_serial_number_AT
 
 	chmod 0666 /sys/class/drm/card0-DSI-1/osc_mode
 	chown radio radio /sys/class/drm/card0-DSI-1/osc_mode
