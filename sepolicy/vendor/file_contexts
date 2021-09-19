@@ -42,12 +42,14 @@
 /dev/opfeature            u:object_r:opf_file:s0
 /dev/param                u:object_r:param_device:s0
 /dev/pn553                u:object_r:nfc_device:s0
+/dev/p73                  u:object_r:secure_element_device:s0
 /dev/skin_thermal         u:object_r:therm_device:s0
 /dev/stmvl53l1_ranging    u:object_r:vl53l1_device:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oneplus            u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1\.0-service\.oneplus    u:object_r:hal_lineage_fod_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.secure_element@1\.2-service                                   u:object_r:hal_secure_element_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oneplus                          u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oneplus                                u:object_r:hal_lineage_touch_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.camera@1\.0-service                              u:object_r:hal_cameraHIDL_default_exec:s0
