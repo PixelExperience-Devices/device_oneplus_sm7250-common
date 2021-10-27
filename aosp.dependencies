@@ -7,7 +7,7 @@
   {
     "repository"  : "vendor_oneplus_sm7250-common",
     "target_path" : "vendor/oneplus/sm7250-common",
-    "branch"      : "eleven",
+    "branch"      : "twelve",
     "remote"      : "pixel-devices-blobs"
   }
 ]
