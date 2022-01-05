@@ -14,5 +14,11 @@
     "target_path" : "vendor/oneplus/sm7250-common",
     "branch"      : "twelve",
     "remote"      : "pixel-devices-blobs"
+  },
+  {
+    "repository"  : "vendor_oneplus_wfdcommon",
+    "target_path" : "vendor/oneplus/wfdcommon",
+    "branch"      : "lito",
+    "remote"      : "pixel-devices-blobs"
   }
 ]
