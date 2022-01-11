@@ -457,6 +457,14 @@ vendor/lib64/vendor.qti.hardware.iop@2.0.so|db29e7381058cf53b2e8827fb2ecb51b981c
 vendor/bin/msm_irqbalance|2ac477da6216b8bf616db5a205dac4059b6d73a4
 vendor/etc/msm_irqbalance.conf|048e1a7f35df0e7acb14cb573d4aab363ea7c8bd
 
+# Keymaster - from LA.UM.9.12.r1-13400.02-SMxx50.QSSI12.0
+vendor/bin/hw/android.hardware.keymaster@4.1-service-qti|f73b61eaa74cd0257d168f88133ee171b9349bf9
+vendor/etc/init/android.hardware.keymaster@4.1-service-qti.rc|f6907552961ba772c1ad5b493913a60d65abedb4
+vendor/lib64/libkeymasterdeviceutils.so|6fd0b0e1b30c4e6c5272794896306596880c657b
+vendor/lib64/libkeymasterprovision.so|9e65e9246da6f443cacc5ff9e70e49df313a1fcf
+vendor/lib64/libkeymasterutils.so|572e22dd69debd0f64c5df9f723276f0184e36cc
+vendor/lib64/libqtikeymaster4.so|b283d2fc27d5b8bee35146465e9b9dc978fec908
+
 # Listen - from LA.UM.9.12.r1-13400.02-SMxx50.QSSI12.0
 vendor/lib/hw/sound_trigger.primary.lito.so|eea1b9ecc036a7db729f5e24b918aaa822404feb
 vendor/lib/libadpcmdec.so|297d8fecff85b6dc67ff19e788bcf3f1286014a0
