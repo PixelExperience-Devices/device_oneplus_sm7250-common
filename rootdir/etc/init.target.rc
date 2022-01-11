@@ -53,29 +53,17 @@ on early-fs
 
 on fs
     start hwservicemanager
-    #RuiLi@ODM_WT.ENGINEERINGMODE, 2021/01/27 *#911# can't creat file in op2
-    mkdir /mnt/vendor/op2 0660 system system
     mount_all --early
-# ajinath@SYSTEM, 2020/01/16, [OSP-2080] Recovery boot reason
-    wait /mnt/vendor/op2
-    chown system system /mnt/vendor/op2
-    mkdir /mnt/vendor/op2/rbr_log 0770 system system
-#endif /* VENDOR_EDIT */
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
-    #RuiLi@ODM_WT.ENGINEERINGMODE, 2021/01/27 *#911# can't creat file in op2
-    wait /mnt/vendor/op2
-    chown system system /mnt/vendor/op2
     #sam.li@SYSTEM,add for cota
     mkdir /mnt/vendor/my_cota 0660 system system
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-# yanbin.zhang@ODM_WT.AD.Aging 2020/12/21, add for engineeringmode app.
-    mkdir /mnt/vendor/op2/recovery 0770 root system
 
 on late-fs
     wait_for_prop hwservicemanager.ready true

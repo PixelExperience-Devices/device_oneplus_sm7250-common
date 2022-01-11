@@ -17,8 +17,6 @@
 /dev/block/platform/soc/1d84000.ufshc/by-name/oem_cust2_[ab]     u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/oem_dycnvbk        u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/oem_stanvbk        u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/op1                u:object_r:op1_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/op2                u:object_r:op2_block_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/opproduct_[ab]     u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/param              u:object_r:param_block_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/reserve1           u:object_r:reserve1_block_device:s0
@@ -58,10 +56,6 @@
 /(vendor|system/vendor)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service                         u:object_r:hal_graphics_composer_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature-service                  u:object_r:hal_graphics_composer_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oneplus                           u:object_r:hal_vibrator_default_exec:s0
-
-# OP1, OP2 files
-/mnt/vendor/op1(/.*)?    u:object_r:op1_file:s0
-/mnt/vendor/op2(/.*)?    u:object_r:op2_file:s0
 
 # Persist files
 /mnt/vendor/persist                                  u:object_r:vendor_data_file:s0

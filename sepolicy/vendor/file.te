@@ -1,7 +1,5 @@
 # files
 type oem_file, file_type;
-type op1_file, file_type;
-type op2_file, file_type;
 type opf_file, file_type;
 
 # procfs
