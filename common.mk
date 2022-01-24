@@ -511,6 +511,11 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     android.hardware.media.c2@1.0.vendor
 
+# Codec2 modules
+PRODUCT_PACKAGES += \
+    com.android.media.swcodec \
+    libsfplugin_ccodec
+
 # Enable Codec 2.0
 PRODUCT_PACKAGES += \
     libqcodec2_base \
