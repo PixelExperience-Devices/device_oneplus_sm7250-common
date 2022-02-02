@@ -2,7 +2,8 @@
   {
     "repository"  : "hardware_oneplus",
     "target_path" : "hardware/oneplus",
-    "remote"      : "pixel"
+    "remote"      : "pixel",
+    "branch"      : "twelve"
   },
   {
     "repository"  : "device_oneplus_extras",
