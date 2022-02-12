@@ -361,13 +361,6 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
-# OnePlus
-PRODUCT_PACKAGES += \
-    oneplus-fwk
-
-PRODUCT_BOOT_JARS += \
-    oneplus-fwk
-
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
