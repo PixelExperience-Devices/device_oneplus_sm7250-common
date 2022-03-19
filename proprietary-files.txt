@@ -805,10 +805,10 @@ vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc|76447a61ad5529949365eeb
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so|94467739ebb520e1d685642bf52c74dc2b57b524
 vendor/lib64/vendor.qti.hardware.soter@1.0.so|9e7805fbc289224be834e5523a63421817e32229
 
-# Thermal engine - from LA.UM.9.12.r1-13400.02-SMxx50.QSSI12.0
-vendor/bin/thermal-engine|13d6a468a70160c136fb1bd4a59aeacba353c802
--vendor/lib/libthermalclient.so|20114bc026d44fd2599f6ea11814c0f47608d2ff
--vendor/lib64/libthermalclient.so|5717255cb13238f094b121066acc6f7b16335508
+# Thermal engine
+vendor/bin/thermal-engine
+-vendor/lib/libthermalclient.so
+-vendor/lib64/libthermalclient.so
 
 # Time services - from LA.UM.9.12.r1-13400.02-SMxx50.QSSI12.0
 -vendor/app/TimeService/TimeService.apk|1a5f39aa2969feee50ff81ec870b5e2669ae515e
