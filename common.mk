@@ -308,8 +308,10 @@ PRODUCT_PACKAGES += \
     liboffloadhal
 
 # LiveDisplay
+ifeq ($(CUSTOM_VERSION_PROP), twelve_plus)
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.1-service.oneplus
+endif
 
 # Media
 PRODUCT_COPY_FILES += \
