@@ -48,7 +48,11 @@ while [ "${#}" -gt 0 ]; do
                 CLEAN_VENDOR=false
                 ;;
         * )
-                SRC="${1}"
+		if [ -z "$SRC" ]; then
+	                SRC="${1}"
+		else
+			SRC_QTI="${1}"
+		fi
                 ;;
     esac
     shift
@@ -66,9 +70,6 @@ function blob_fixup() {
         system_ext/lib64/libwfdnative.so)
             sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
             ;;
-        vendor/lib64/libgf_ud_hal.so|vendor/lib64/libgf_g6_ud_hal.so)
-            sed -i "s|vendor.boot.verifiedbootstate|vendor.boot.fingerprintbstate|g" "${2}"
-            ;;
     esac
 }
 
@@ -76,7 +77,8 @@ if [ -z "${ONLY_TARGET}" ]; then
     # Initialize the helper for common device
     setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 
-    extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files-oos.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files.txt" "${SRC_QTI}" "${KANG}" --section "${SECTION}"
 fi
 
 if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then

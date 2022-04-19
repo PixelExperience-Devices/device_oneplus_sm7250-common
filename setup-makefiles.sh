@@ -28,6 +28,7 @@ setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true
 write_headers "avicii ebba"
 
 # The standard common blobs
+write_makefiles "${MY_DIR}/proprietary-files-oos.txt" true
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
 # Finish
