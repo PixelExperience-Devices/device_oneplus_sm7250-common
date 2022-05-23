@@ -239,10 +239,6 @@ on boot
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
 
-    # bin.zhong@ASTI, 2019/08/06, Add for OMM
-    chmod 0750 /dev/memcg
-    chown system system /dev/memplus
-
     # allen.lv@ASTI, 2019/10/12, Add for Virtual Memory Defragment
     chmod 0660 /dev/fragment_monitor
     chown system system /dev/fragment_monitor

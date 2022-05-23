@@ -95,15 +95,6 @@ on charger && property:ro.boot.type=auto
     symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f1
     write /config/usb_gadget/g1/UDC ${sys.usb.controller}
 
-on init && property:ro.boot.project_name=19811
-    setprop vendor.wireless_charge.enable true
-
-on boot && property:vendor.wireless_charge.enable=true
-    start wlchgd
-
-on charger && property:vendor.wireless_charge.enable=true
-    start wlchgd
-
 on init && property:ro.build.type=userdebug
     exec u:r:vendor-qti-testscripts:s0 -- /vendor/bin/sh /vendor/bin/init.qti.usb.debug.sh
 

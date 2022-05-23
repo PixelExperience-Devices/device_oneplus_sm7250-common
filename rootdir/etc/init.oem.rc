@@ -34,13 +34,6 @@ service dashd /vendor/bin/dashd
     seclabel u:r:dashd:s0
     group root system
 
-#bsp, 2020/01/04 Add wireless charge
-service wlchgd /vendor/bin/wlchgd
-    class main
-    disabled
-    seclabel u:r:wlchgd:s0
-    group root system
-
 on fs
     #yankelong add
     chown system system /sys/class/leds/vibrator/haptic_audio_ai_input
@@ -109,8 +102,6 @@ on fs
     write /sys/devices/platform/soc/a94000.i2c/i2c-4/4-005d/tp_fw_update 0
     write /sys/devices/platform/soc/880000.i2c/i2c-0/0-0038/tp_fw_update 0
     write /sys/devices/platform/soc/880000.spi/spi_master/spi0/spi0.0/tp_fw_update 0
-#add for n200 
-    write /sys/devices/platform/soc/4a80000.spi/spi_master/spi0/spi0.0/tp_fw_update 0
 
 #add for tp debug log & to set node gesture_enable
     chown system system /proc/touchpanel/tp_debug_log
@@ -123,16 +114,6 @@ on fs
     chown system system /proc/touchpanel/touch_apk
     chown system system /proc/touchpanel/get_device_temperature
     chown system system /proc/touchpanel/get_ic_firmware_version
-#   /* add for wireless charge */
-    chown system system /proc/wireless/enable_tx
-    chown system system /proc/wireless/enable_rx
-    chown system system /proc/wireless/epp_or_bpp
-    chown system system /proc/wireless/current_out
-    chown system system /proc/wireless/rx_voltage
-    chown system system /proc/wireless/charge_pump_en
-    chown system system /proc/wireless/deviated
-    chown system system /proc/wireless/quiet_mode
-    chown system system /proc/wireless/fast_skin_threld
 
     chown system system /proc/enhance_dash
 
@@ -316,9 +297,6 @@ on init
     chown system system /dev/dash
     chmod 0664 /dev/dash
     #restorecon /dev/dash
-    chown system system /dev/wlchg
-    chmod 0664 /dev/wlchg
-    #restorecon /dev/wlchg
 
 on post-fs
 #ifdef VENDOR_EDIT
@@ -390,11 +368,6 @@ on post-fs
     chown system system /sys/class/power_supply/bms/full_charge_capacity_filtered
     chmod 660 /sys/class/power_supply/bms/full_charge_capacity_filtered
 #endif
-#ifdef VENDOR_EDIT
-#randle.liu@optimization, 2020/04/24, [OSP-6116] avoid waking up when wireless charging disconnects
-    chown system system /sys/class/power_supply/wireless/icon_delay
-    chmod 660 /sys/class/power_supply/wireless/icon_delay
-#endif
 #jay.fa@OPTI, 2020/08/12, add for [OPTI-42] hypnus
     chown root system /sys/class/thermal/cooling_device0/cur_state
     chown root system /sys/class/thermal/cooling_device1/cur_state
@@ -413,20 +386,6 @@ on post-fs-data
     mkdir /data/vendor/oemnvitems 0771 radio radio
     #brandon.zeng@Conn,2020/08/11. move data path to post-fs-data
     mkdir /data/vendor/nfc 0770 nfc nfc
-    # Ted.Lin@ASTI 2019/06/12 add for CONFIG_HOUSTON
-    chown system system /sys/module/houston/parameters/fps_boost
-    chown system system /sys/module/houston/parameters/fps_data_sync
-    chown system system /sys/module/houston/parameters/perf_ready
-    chown system system /sys/module/houston/parameters/ais_enable
-    chown system system /sys/module/houston/parameters/sample_rate_ms
-    chown system system /sys/module/houston/parameters/ht_enable
-    chown system system /sys/module/houston/parameters/fps_boost_enable
-    chown system system /sys/module/houston/parameters/fps_boost_strategy
-    chown system system /sys/module/houston/parameters/tb_ctl
-    chown system system /sys/module/houston/parameters/tb_enable
-    chown system system /sys/module/houston/parameters/reset
-    chown system system /sys/module/houston/parameters/hwui_boost_enable
-    chown system system /sys/module/houston/parameters/fuse_boost
     chown system system /dev/ht_ctl
     chown system system /sys/module/pccore/parameters/params
     chown system system /sys/module/tpd/parameters/tpd_enable
@@ -435,14 +394,6 @@ on post-fs-data
     chown system system /sys/module/tpd/parameters/tpd_dynamic
     chown system system /sys/module/fuse/parameters/shortcircuit
     chown system system /sys/module/fuse/parameters/sct_mode
-    # Jacky.Ho@OPTI 2020/09/23 add for [OSP-8617]
-    chown system system /sys/module/houston/parameters/game_fps_pid
-    chown system system /sys/module/houston/parameters/game_info
-    # fps stabilizer
-    chown system system /sys/module/houston/parameters/efps_max
-    chown system system /sys/module/houston/parameters/fps_boost_strategy
-    chown system system /sys/module/houston/parameters/egl_buf
-    chown system system /sys/module/houston/parameters/ht_online_config_update
 
     # rock.lin@OPTI [OPTI-191] for power consumption
     chown system system /sys/module/cpufreq_bouncing/parameters/enable
@@ -451,10 +402,6 @@ on post-fs-data
     # Jacky.Ho@OPTI 2020/09/30 add for [OPTI-85]
     chown system system /sys/module/tpp/parameters/tpp_on
     chown system system /sys/module/tpp/parameters/strategy
-
-# Ted.Lin@ASTI 2019/06/12 add for CONFIG_CONTROL_CENTER
-    chown system system /dev/cc_ctl
-    chown system system /proc/cc_ctl
 
 #endif /* VENDOR_EDIT */
 
@@ -468,12 +415,6 @@ on post-fs-data
     restorecon /mnt/vendor/persist/hdcp
 #endif
 
-# ifdef VENDOR_EDIT
-# denzel.chen@performance, 2020/05/12, add for OPBRITN-3462
-    chmod 664 /sys/module/memplus_core/parameters/memory_plus_wake_memex
-    chown system system /sys/module/memplus_core/parameters/memory_plus_wake_memex
-# endif
-
     # neil.sun@Connectivity, 2020/08/12, add for wifi minidump
     mkdir /data/vendor/ramdump/wifi 0770 system system
 
@@ -481,9 +422,6 @@ on post-fs-data
 # zhangrun@MM, 2020/09/12, implement to collect adsp minidump
     mkdir /data/vendor/ramdump/adsp 0770 system system
 # endif
-
-    # kimmy.yang@NETWORK, 20201223, add for SM8350 (SoC)
-    mkdir /data/vendor/ramdump/modem 0770 system system
 
 #ifdef VENDOR_EDIT online ISP tuning
     mkdir /data/vendor/camera_update 0777 camera camera
@@ -718,21 +656,6 @@ on property:gf.debug.dump_path=*
 
 #endif
 
-# ken.lin@ASTI, 2019/6/21, add for memplus
-service memplus_config /vendor/bin/sh /vendor/etc/vendor.memplus.sh
-    user root
-    disabled
-    oneshot
-    seclabel u:r:vendor_qti_init_shell:s0
-
-on property:persist.vendor.memplus.enable=*
-    start memplus_config
-
-on property:persist.sys.memplus.swappiness=*
-    write /proc/sys/vm/swappiness ${persist.sys.memplus.swappiness}
-on property:persist.sys.memplus.direct_swappiness=*
-    write /proc/sys/vm/direct_swappiness ${persist.sys.memplus.direct_swappiness}
-
 #ifdef VENDOR_EDIT
 #brandon.zeng@Conn,2020/05/08. add for nfc pnscr tool
 service nfctransmitstart /vendor/bin/sh /vendor/bin/nfc_trasmit_start.sh
@@ -819,13 +742,6 @@ on property:persist.sys.oem.otg_support=false
     write /sys/class/oplus_chg/usb/otg_switch 0
 #endif
 
-#ifdef VENDOR_EDIT
-on property:persist.vendor.oem.wechat_cameraon=1
-    write /sys/class/oplus_chg/common/camera_on 1
-on property:persist.vendor.oem.wechat_cameraon=0
-    write /sys/class/oplus_chg/common/camera_on 0
-#endif
-
 on property:vendor.sys.op.game=1
     write  /proc/sys/kernel/sched_skip_affinity 1
 
@@ -902,31 +818,3 @@ on property:sys.boot_completed=1
     write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/tw_enable 1
     write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/flush_enable 1
     write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/flush_during_hibern_enter 1
-
-#alden.zhang@OPTI, 2020/7/18. [OSP-8064], add for IOLIMIT
-on property:persist.sys.iolimiter.enable=true
-    write /proc/iolimit_enable 1
-    write /sys/module/oneplus_healthinfo/parameters/ohm_action_ctrl Y
-    chown system system /sys/module/oneplus_healthinfo
-    chown system system /sys/module/oneplus_healthinfo/parameters
-    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_iowait_h_ms
-    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_iowait_l_ms
-    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_read_thresh
-    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_write_thresh
-    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_sample_time
-    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_action_ctrl
-    chown system system /proc/iolimit_enable
-
-#huangwen.chen#OPTI, 2020/9/16, [OPTI-43], add for zram writeback
-on property:persist.vendor.oem.dump=0
-    setprop persist.vendor.zwriteback.backup 0
-
-on property:persist.vendor.oem.dump=1
-    setprop persist.vendor.zwriteback.backup 1
-
-#ifdef ODM_WT_EDIT Kai.Cao@ODM_WT.NW.SIM,BILLIE8-6704, 2020/07/13,Support single and dual card solutions
-on property:ro.boot.rf_version=0 && property:ro.boot.project_codename=billie8
-    setprop persist.radio.multisim.config "ssss"
-on property:ro.boot.rf_version=0 && property:ro.boot.project_codename=billie8t
-    setprop persist.radio.multisim.config "ssss"
-#endif
