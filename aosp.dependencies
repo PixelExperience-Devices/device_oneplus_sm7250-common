@@ -5,6 +5,12 @@
     "remote"      : "pixel"
   },
   {
+    "repository"  : "KakatkarAkshay/packages_apps_GoogleCamera",
+    "target_path" : "packages/apps/GoogleCamera",
+    "remote"      : "gitlab",
+    "branch"      : "twelve"
+  },
+  {
     "repository"  : "vendor_oneplus_sm7250-common",
     "target_path" : "vendor/oneplus/sm7250-common",
     "branch"      : "twelve",
