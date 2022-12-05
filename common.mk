@@ -18,7 +18,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Include GSI keys
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
@@ -28,7 +28,7 @@ $(call inherit-product, vendor/oneplus/sm7250-common/sm7250-common-vendor.mk)
 $(call inherit-product, $(LOCAL_PATH)/interfaces.mk)
 
 # GoogleCamera
-$(call inherit-product, packages/apps/GoogleCamera/config.mk)
+#$(call inherit-product, packages/apps/GoogleCamera/config.mk)
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -130,7 +130,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio@2.1-impl \
     android.hardware.soundtrigger@2.3-impl \
-    audio.a2dp.default \
     audio.bluetooth.default \
     audio.primary.lito \
     audio.r_submix.default \
