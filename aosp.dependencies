@@ -2,12 +2,13 @@
   {
     "repository"  : "hardware_oneplus",
     "target_path" : "hardware/oneplus",
-    "remote"      : "pixel"
+    "remote"      : "pixel",
+    "branch"      : "thirteen"
   },
   {
     "repository"  : "vendor_oneplus_sm7250-common",
     "target_path" : "vendor/oneplus/sm7250-common",
-    "branch"      : "twelve",
+    "branch"      : "thirteen",
     "remote"      : "pixel-devices-blobs"
   }
 ]
